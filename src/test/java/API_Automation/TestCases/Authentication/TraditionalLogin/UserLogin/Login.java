@@ -8,19 +8,17 @@ import static org.hamcrest.Matchers.equalTo;
 import io.qameta.allure.Description;
 import io.restassured.path.json.JsonPath;
 import org.json.simple.JSONObject;
-import org.apache.http.HttpStatus;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Login {
     public String tempToken;
     @Test
     @Description("Test Case for User Login API on Rupeezy Web App")
-    public void Login_User() {
+    public String Login_User() {
         RequestSpecification request = RestAssured.given();
         request.baseUri(BASE_URL);
         request.basePath(User_Login);
@@ -47,5 +45,6 @@ public class Login {
         // Then simply query the JsonPath object to get a String value of the node
         // specified by JsonPath: tempToken (Note: You should not put $. in the Java code)
         tempToken = jsonPathEvaluator.get("tempToken");
+        return tempToken;
     }
 }
