@@ -1,6 +1,9 @@
 package API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -12,8 +15,10 @@ import static API_Automation.config.URLConstants.FlowApp_Endpoint.Send_TOTP;
 import static org.hamcrest.Matchers.equalTo;
 
 public class SendTOTP {
-    @Test
-    @Description("Test Case for User TOTP Verify API on Rupeezy Web App")
+    @Severity(SeverityLevel.NORMAL)
+    @Test(priority = 1, description = "Verify Login API")
+    @Description("Test Description : Verify the Login API of Login Page")
+    @Story("")
     public void Send_TOTP(String tempToken) {
         RequestSpecification request = RestAssured.given();
         request.filter(new AllureRestAssured());

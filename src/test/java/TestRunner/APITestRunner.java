@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 public class APITestRunner {
     String tempToken;
+    String access_token;
 
     @Feature("Login API Tests")
     @Epic("Rupeezy Web Application API - Regression Testing")
@@ -31,6 +32,6 @@ public class APITestRunner {
     @Test(dependsOnMethods = {"Login_Test"})
     void Validate_MFA() {
         VerifyMFA verifyMFA = new VerifyMFA();
-        verifyMFA.Validate_MFA(tempToken);
+        access_token = verifyMFA.Validate_MFA(tempToken);
     }
 }
