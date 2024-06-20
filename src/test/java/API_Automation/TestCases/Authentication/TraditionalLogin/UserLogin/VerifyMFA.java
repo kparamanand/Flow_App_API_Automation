@@ -21,7 +21,7 @@ public class VerifyMFA {
         request.filter(new AllureRestAssured());
         request.baseUri(BASE_URL);
         request.basePath(Verify_MFA);
-        request.header("Authorization", "Bearer " + tempToken);
+        request.given().header("Authorization", "Bearer " + tempToken);
 
         JSONObject requestParams = new JSONObject();
         requestParams.put("otp", OTP);
@@ -35,7 +35,10 @@ public class VerifyMFA {
         request.body(requestParams.toJSONString());
 
         Response response = request.post();
-        response.then().body("status", equalTo("success"));
+        response.then()
+                .body("status", equalTo("success"))
+                .statusCode(200)
+                .statusLine("HTTP/1.1 200 OK");
 
         System.out.println(response.asString());
 

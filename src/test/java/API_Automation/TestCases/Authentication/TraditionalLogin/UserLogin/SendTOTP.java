@@ -22,7 +22,10 @@ public class SendTOTP {
         request.header("Authorization", "Bearer " + tempToken);
 
         Response response = request.post();
-        response.then().body("status", equalTo("success"));
+        response.then()
+                .body("status", equalTo("success"))
+                .statusCode(200)
+                .statusLine("HTTP/1.1 200 OK");
 
         System.out.println(response.asString());
     }
