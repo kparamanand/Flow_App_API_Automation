@@ -1,5 +1,6 @@
 package API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -17,6 +18,7 @@ public class VerifyMFA {
     @Test
     public void Validate_MFA(String tempToken) {
         RequestSpecification request = RestAssured.given();
+        request.filter(new AllureRestAssured());
         request.baseUri(BASE_URL);
         request.basePath(Verify_MFA);
         request.header("Authorization", "Bearer " + tempToken);

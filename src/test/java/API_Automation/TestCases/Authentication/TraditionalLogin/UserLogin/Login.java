@@ -6,6 +6,7 @@ import static API_Automation.config.URLConstants.FlowApp_Endpoint.*;
 import static org.hamcrest.Matchers.equalTo;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.path.json.JsonPath;
 import org.json.simple.JSONObject;
 
@@ -20,6 +21,7 @@ public class Login {
     @Description("Test Case for User Login API on Rupeezy Web App")
     public String Login_User() {
         RequestSpecification request = RestAssured.given();
+        request.filter(new AllureRestAssured());
         request.baseUri(BASE_URL);
         request.basePath(User_Login);
 
