@@ -1,6 +1,4 @@
-package API_Automation.Constants;
-
-import API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin.Login;
+package API_Automation.Constants.LoginConstants;
 
 public class VerifyMFAConstant {
     public static String OTP = "123456";

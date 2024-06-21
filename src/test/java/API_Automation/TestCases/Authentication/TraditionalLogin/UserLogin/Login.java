@@ -1,6 +1,6 @@
 package API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin;
 
-import static API_Automation.Constants.UserLoginConstant.*;
+import static API_Automation.Constants.LoginConstants.UserLoginConstant.*;
 import static API_Automation.config.URLConstants.FlowApp.*;
 import static API_Automation.config.URLConstants.FlowApp_Endpoint.*;
 import static org.hamcrest.Matchers.equalTo;

@@ -9,7 +9,7 @@ public class URLConstants {
         public static final String User_Login = "/aux/authentication/login";
         public static final String Send_TOTP = "/aux/authentication/sendTotpSms";
         public static final String Verify_MFA = "/aux/authentication/inhouse/verifyMfa";
-        public static final String Validate_Sessions = "";
-        public static final String User_Profile = "";
+        public static final String User_Funds = "/user/funds";
+        public static final String User_Preferences = "/user/preferences";
     }
 }

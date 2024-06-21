@@ -1,4 +1,4 @@
-package API_Automation.Constants;
+package API_Automation.Constants.LoginConstants;
 
 public class UserLoginConstant {
     public static String CLIENT_CODE = "IOSTEST";

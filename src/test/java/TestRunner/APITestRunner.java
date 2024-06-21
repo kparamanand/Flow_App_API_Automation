@@ -1,10 +1,8 @@
 package TestRunner;
 
-import API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin.Login;
-import API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin.SendTOTP;
-import API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin.VerifyMFA;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import API_Automation.TestCases.Authentication.TraditionalLogin.UserLogin.*;
+import API_Automation.TestCases.Order.*;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 public class APITestRunner {
@@ -33,5 +31,19 @@ public class APITestRunner {
     void Validate_MFA() {
         VerifyMFA verifyMFA = new VerifyMFA();
         access_token = verifyMFA.Validate_MFA(tempToken);
+    }
+
+    @Feature("User API Tests")
+    @Epic("Rupeezy Web Application API - Regression Testing")
+    @Test(dependsOnMethods = {"Validate_MFA"})
+    void User_Funds() {
+        UserFunds.User_Funds(access_token);
+    }
+
+    @Feature("User API Tests")
+    @Epic("Rupeezy Web Application API - Regression Testing")
+    @Test(dependsOnMethods = {"Validate_MFA"})
+    void User_Preferences() {
+        userPreferences_TestCase.User_Preferences(access_token);
     }
 }

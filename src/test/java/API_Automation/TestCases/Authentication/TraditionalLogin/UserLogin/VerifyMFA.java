@@ -12,9 +12,9 @@ import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
-import static API_Automation.Constants.UserLoginConstant.DEVICE_ID;
-import static API_Automation.Constants.VerifyMFAConstant.*;
-import static API_Automation.Constants.VerifyMFAConstant.APP_VERSION;
+import static API_Automation.Constants.LoginConstants.UserLoginConstant.DEVICE_ID;
+import static API_Automation.Constants.LoginConstants.VerifyMFAConstant.*;
+import static API_Automation.Constants.LoginConstants.VerifyMFAConstant.APP_VERSION;
 import static API_Automation.config.URLConstants.FlowApp.*;
 import static API_Automation.config.URLConstants.FlowApp_Endpoint.*;
 import static org.hamcrest.Matchers.equalTo;
@@ -53,8 +53,6 @@ public class VerifyMFA {
 
         JsonPath jsonPathEvaluator = response.jsonPath();
 
-        String access_token = jsonPathEvaluator.getString("data.access_token");
-
-        return access_token;
+        return jsonPathEvaluator.getString("data.access_token");
     }
 }
